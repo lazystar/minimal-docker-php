@@ -1,0 +1,14 @@
+services:
+  nginx:
+    image: nginx:latest
+    ports:
+      - 12345:80
+    volumes:
+      - ./app:/srv/www
+      - ./docker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+  php:
+    image: phpdaily/php:8.1.0-dev-fpm-alpine3.13
+    volumes:
+      - ./app:/srv/www
+
+
